@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "remonts",
+  "info": {
+    "name": "Project"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "worklist": {
+      "type": "dynamiczone",
+      "components": [
+        "job.job"
+      ]
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

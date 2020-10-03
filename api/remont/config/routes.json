@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/remonts",
+      "handler": "remont.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/remonts/count",
+      "handler": "remont.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/remonts/:id",
+      "handler": "remont.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/remonts",
+      "handler": "remont.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/remonts/:id",
+      "handler": "remont.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/remonts/:id",
+      "handler": "remont.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

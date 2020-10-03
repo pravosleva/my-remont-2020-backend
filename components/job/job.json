@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_job_jobs",
+  "info": {
+    "name": "job",
+    "icon": "handshake"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "isDone": {
+      "type": "boolean",
+      "default": false
+    },
+    "plannedStartDate": {
+      "type": "date"
+    },
+    "plannedFinishDate": {
+      "type": "date"
+    },
+    "realFinishDate": {
+      "type": "date"
+    },
+    "isStarted": {
+      "type": "boolean",
+      "default": false
+    },
+    "payed": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "comment": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    }
+  }
+}

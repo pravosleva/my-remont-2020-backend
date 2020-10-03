@@ -1,0 +1,36 @@
+{
+  "name": "backend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "ENV_PATH=/home/pravosleva/projects/nextjs-strapi-jwt-auth-boilerplate-2020/backend/.env.dev strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "strapi": "3.1.7",
+    "strapi-admin": "3.1.7",
+    "strapi-connector-mongoose": "3.1.7",
+    "strapi-plugin-content-manager": "3.1.7",
+    "strapi-plugin-content-type-builder": "3.1.7",
+    "strapi-plugin-documentation": "3.1.7",
+    "strapi-plugin-email": "3.1.7",
+    "strapi-plugin-upload": "3.1.7",
+    "strapi-plugin-users-permissions": "3.1.7",
+    "strapi-utils": "3.1.7"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "513001ee-6531-4f49-ac08-936639227188"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
