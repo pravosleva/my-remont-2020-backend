@@ -114,3 +114,9 @@ license.txt
 exports
 .cache
 build
+
+############################
+# CRA build
+############################
+
+public/client/*
