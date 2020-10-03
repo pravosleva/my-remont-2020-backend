@@ -9,7 +9,7 @@
     "timestamps": true
   },
   "attributes": {
-    "worklist": {
+    "joblist": {
       "type": "dynamiczone",
       "components": [
         "job.job"

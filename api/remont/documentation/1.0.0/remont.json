@@ -522,7 +522,7 @@
           "id": {
             "type": "string"
           },
-          "worklist": {
+          "joblist": {
             "type": "array",
             "items": {
               "oneOf": [
@@ -584,7 +584,7 @@
       },
       "NewRemont": {
         "properties": {
-          "worklist": {
+          "joblist": {
             "type": "array",
             "items": {
               "oneOf": [
