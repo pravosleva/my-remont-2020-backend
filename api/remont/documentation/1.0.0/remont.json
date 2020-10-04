@@ -564,7 +564,18 @@
                     "comment": {
                       "type": "string"
                     },
-                    "price": {
+                    "priceJobs": {
+                      "type": "integer",
+                      "default": 0
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "priceMaterials": {
+                      "type": "integer",
+                      "default": 0
+                    },
+                    "priceDelivery": {
                       "type": "integer",
                       "default": 0
                     }
@@ -626,7 +637,18 @@
                     "comment": {
                       "type": "string"
                     },
-                    "price": {
+                    "priceJobs": {
+                      "type": "integer",
+                      "default": 0
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "priceMaterials": {
+                      "type": "integer",
+                      "default": 0
+                    },
+                    "priceDelivery": {
                       "type": "integer",
                       "default": 0
                     }

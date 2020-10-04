@@ -35,7 +35,20 @@
     "comment": {
       "type": "string"
     },
-    "price": {
+    "priceJobs": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "priceMaterials": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "priceDelivery": {
       "type": "integer",
       "default": 0,
       "min": 0
