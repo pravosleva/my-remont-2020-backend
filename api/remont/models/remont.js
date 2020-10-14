@@ -25,7 +25,7 @@ const debouncedAfterUpdate = debounce(({ result, params, data }) => {
   //   id: model._conditions ? model._conditions._id : null,
   // });
   strapi.io.emit("REMONT_UPDATED", { result, params, data })
-}, 4000);
+}, 500);
 
 module.exports = {
   /**
