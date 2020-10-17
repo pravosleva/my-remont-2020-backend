@@ -26,6 +26,9 @@ const debouncedAfterUpdate = debounce(({ result, params, data }) => {
   // });
   strapi.io.emit("REMONT_UPDATED", { result, params, data })
 }, 500);
+const debouncedAfterCreate = debounce(({ result, data }) => {
+  strapi.io.emit("REMONT_CREATED", { result, data })
+}, 500);
 
 module.exports = {
   /**
@@ -39,5 +42,8 @@ module.exports = {
 
       debouncedAfterUpdate({ result, params, data });
     },
+    async afterCreate(result, data) {
+      debouncedAfterCreate({ result, data });
+    }
   },
 };
