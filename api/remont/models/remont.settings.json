@@ -17,6 +17,18 @@
     },
     "name": {
       "type": "string"
+    },
+    "owners": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "projects",
+      "dominant": true
+    },
+    "executors": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "projects",
+      "dominant": true
     }
   }
 }
