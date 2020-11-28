@@ -578,6 +578,9 @@
                     "priceDelivery": {
                       "type": "integer",
                       "default": 0
+                    },
+                    "imagesUrls": {
+                      "type": "object"
                     }
                   },
                   "required": [
@@ -753,6 +756,9 @@
                     "priceDelivery": {
                       "type": "integer",
                       "default": 0
+                    },
+                    "imagesUrls": {
+                      "type": "object"
                     }
                   },
                   "required": [
