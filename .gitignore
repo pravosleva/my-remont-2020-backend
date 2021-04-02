@@ -121,3 +121,7 @@ build
 
 public/client/*
 public/demo/*
+service.*/**
+!service.*/.gitkeep
+!service.cleanup/make-uploads-txt-report.sh
+!service.cleanup/make-uploads-json-report.js
