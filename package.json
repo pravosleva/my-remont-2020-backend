@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "uploads:make-report": "bash ./service.cleanup/make-uploads-txt-report.sh && node ./service.cleanup/make-uploads-json-report.js",
+    "uploads:make-report": "bash ./service.cleanup/step1-make-uploads-txt-report.sh && node ./service.cleanup/step2-make-uploads-json-report.js && node ./service.cleanup/step3-assignment-check.js",
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
@@ -12,6 +12,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "axios": "^0.21.1",
     "geoip-lite": "^1.4.2",
     "linebyline": "^1.3.0",
     "socket.io": "^2.3.0",

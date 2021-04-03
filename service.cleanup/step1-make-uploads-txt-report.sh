@@ -14,13 +14,14 @@ if [ ! -d "${EXTERNAL_DIR}/backend/public/uploads" ]
     exit 1
 fi
 
-# STEP 1: Список файлов
+# STEP 1.1: Список файлов
 ls "${EXTERNAL_DIR}/backend/public/uploads" > $SERVICE_DIR/$REPORT_ALL_PHOTOS_LIST_FILENAME &&
 
-# STEP 2: Total counter
+# STEP 1.2: Total counter
 wc -l $SERVICE_DIR/$REPORT_ALL_PHOTOS_LIST_FILENAME | awk '{ print $1 }' > $SERVICE_DIR/$REPORT_TOTAL_FILENAME
 
-# STEP 3: Make json string and write as report
+# STEP 2: Make json string and write as report
+# NOTE: Решил средствами Node
 # FILES=$EXTERNAL_DIR/$REPORT_ALL_PHOTOS_LIST_FILENAME
 # while IFS= read -r line
 # do
