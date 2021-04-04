@@ -123,6 +123,4 @@ public/client/*
 public/demo/*
 service.*/**
 !service.*/.gitkeep
-!service.cleanup/step1-make-uploads-txt-report.sh
-!service.cleanup/step2-make-uploads-json-report.js
-!service.cleanup/step3-assignment-check.js
+!service.cleanup/step.*

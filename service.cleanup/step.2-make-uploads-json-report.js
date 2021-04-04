@@ -3,13 +3,46 @@ const path = require('path')
 const fs = require('fs')
 
 const reportFileName = 'report.final.json'
-
 const rl = readline(path.join(__dirname, 'report.all-photos.txt'));
-const lines = [];
+const json = {
+  step2: {
+    description: 'Чтение перечня файлов из текстового файла',
+    allUploads: {},
+    ts: new Date().getTime(),
+  },
+  'step3.1': {  
+    description: 'Файлы, найденные в проектах',
+    assignedUploads: {},
+    ts: null,
+  },
+  'step3.2': {
+    description: 'Analysis',
+    analysis: {
+      total: 0,
+      totalSize: 0,
+      assigned: {
+        total: 0,
+        totalSize: 0,
+      },
+      notAssigned: {
+        total: 0,
+        totalSize: 0,
+      },
+    },
+    ts: null,
+  },
+  'step3.3': {
+    description: 'Удаленные файлы',
+    removedUploads: {},
+    ts: null,
+  },
+};
+
 rl
-  .on('line', function(line, lineCount, byteCount) {
+  .on('line', function(line, _lineCount, _byteCount) {
     // do something with the line of text
-    lines.push({ filename: line });
+    // lines.push({ filename: line });
+    json.step2.allUploads[line] = false
   })
   .on('close', function() {
     // function getValues(arr) {
@@ -27,23 +60,7 @@ rl
     // const isOk = getValues(lines).length === 1;
 
     // process.stdout.write((isOk ? 1 : 0).toString());
-    const json = {
-      step2: {
-        description: 'Чтение перечня файлов из текстового файла',
-        allUploads: lines,
-        ts: new Date().getTime(),
-      },
-      'step3.1': {  
-        description: 'Файлы, не найденные ни в одной из работ',
-        notAssignedUploads: [],
-        ts: null,
-      },
-      'step3.2': {
-        description: 'Удаленные файлы',
-        removedUploads: [],
-        ts: null,
-      },
-    };
+    
     const reportFile = path.join(__dirname, reportFileName)
 
     fs.writeFile(

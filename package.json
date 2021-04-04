@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "uploads:make-report": "bash ./service.cleanup/step1-make-uploads-txt-report.sh && node ./service.cleanup/step2-make-uploads-json-report.js && node ./service.cleanup/step3-assignment-check.js",
+    "uploads:make-report": "bash ./service.cleanup/step.1-make-uploads-txt-report.sh && node ./service.cleanup/step.2-make-uploads-json-report.js && LIMIT=1 node ./service.cleanup/step.3.1.2-run-some-pages.js",
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
@@ -14,6 +14,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "geoip-lite": "^1.4.2",
+    "get-folder-size": "^2.0.1",
     "linebyline": "^1.3.0",
     "socket.io": "^2.3.0",
     "strapi": "3.1.7",
@@ -26,7 +27,8 @@
     "strapi-plugin-graphql": "3.1.7",
     "strapi-plugin-upload": "3.1.7",
     "strapi-plugin-users-permissions": "3.1.7",
-    "strapi-utils": "3.1.7"
+    "strapi-utils": "3.1.7",
+    "systeminformation": "^5.6.10"
   },
   "author": {
     "name": "A Strapi developer"
