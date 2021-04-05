@@ -102,7 +102,7 @@ const main = async () => {
   // const hashes = allImgs.map(({ thumbnail: { hash } }) => hash.split('_').reverse()[0])
   allImgs.forEach((obj) => {
     for (const key in obj) {
-      if (report['step1'].allUploads[[obj[key].name]] === false) {
+      if (report['step2'].allUploads[[obj[key].name]] === false) {
         report['step3.1'].assignedUploads[[obj[key].name]] = true
       } else {
         report['step3.1'].assignedUploads[[obj[key].name]] = false
