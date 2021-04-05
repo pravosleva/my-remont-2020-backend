@@ -96,6 +96,7 @@ const main = () => httpClient.get('/remonts/count')
         report['step3.1'].assignedUploads[key] = report['step2'].allUploads[key] || false
       }
     })
+    report['step3.1'].ts = new Date().getTime()
 
     fs.writeFileSync(
       reportFile,
