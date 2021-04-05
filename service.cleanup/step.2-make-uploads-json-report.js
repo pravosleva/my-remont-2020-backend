@@ -6,15 +6,15 @@ const reportFileName = 'report.final.json'
 const rl = readline(path.join(__dirname, 'report.all-photos.txt'));
 const json = {
   step2: {
-    description: 'Чтение перечня файлов из текстового файла',
+    description: 'Чтение перечня файлов из текстового файла -> Отметка тех, что найдены в проектах',
     allUploads: {},
     ts: new Date().getTime(),
   },
-  'step3.1': {
-    description: 'Файлы, найденные в проектах',
-    assignedUploads: {},
-    ts: null,
-  },
+  // 'step3.1': {
+  //   description: 'Файлы, найденные в проектах',
+  //   assignedUploads: {},
+  //   ts: null,
+  // },
   'step3.2': {
     description: 'Analysis',
     analysis: {

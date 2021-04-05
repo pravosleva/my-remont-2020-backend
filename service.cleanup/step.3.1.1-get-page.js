@@ -8,7 +8,7 @@ const reportFileName = 'report.final.json'
 const report = require('./report.final.json')
 // console.log(report)
 
-report['step3.1'].assignedUploads['.gitkeep'] = true // NOTE: Исключение
+report['step2'].allUploads['.gitkeep'] = true // NOTE: Исключение
 
 const httpClient = axios.create({
   baseURL: 'http://selection4test.ru:1338', // selection4test.ru
@@ -106,29 +106,18 @@ const main = async () => {
       const filename = getFilename([obj[key].url])
 
       if (report['step2'].allUploads[filename] === false) {
-        report['step3.1'].assignedUploads[filename] = true
-      } else {
-        report['step3.1'].assignedUploads[filename] = report['step2'].allUploads[filename] || false
+        // report['step3.1'].assignedUploads[filename] = true
+        report['step2'].allUploads[filename] === true
       }
+      // else {
+      //   report['step3.1'].assignedUploads[filename] = report['step2'].allUploads[filename] || false
+      // }
 
       report['step3.2'].analysis.assigned.total += 1
       report['step3.2'].analysis.assigned.totalSize += obj[key].size // kB
       report['step3.2'].ts = new Date().getTime()
     }
   })
-  // process.stdout.write(Object.keys(report['step3.1'].assignedUploads).length)
-  // console.log(report['step3.1'].assignedUploads)
-  fs.writeFileSync(
-    path.join(__dirname, `_tmp.db-report.${PAGE}.txt`),
-    Object.keys(report['step3.1'].assignedUploads).length,
-    'utf8',
-    () => {
-      console.log('👌 TMP REPORT SAVED')
-      // process.exit(0)
-    }
-  )
-  report['step3.1'].ts = new Date().getTime()
-  // report['step3.2'].analysis.total += Object.keys(report['step3.1'].assignedUploads).length
 
   const reportFile = path.join(__dirname, reportFileName)
   fs.writeFileSync(
