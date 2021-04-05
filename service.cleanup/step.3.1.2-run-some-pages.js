@@ -6,9 +6,12 @@ const fs = require('fs')
 
 const { LIMIT } = process.env
 
+const reportFileName = 'report.final.json'
+const reportFile = path.join(__dirname, reportFileName)
+
 const httpClient = axios.create({
   baseURL: 'http://selection4test.ru:1338', // selection4test.ru
-  proxy: false  
+  proxy: false
 })
 /*
 const getPartial = (arr, chunkSize) =>
@@ -86,14 +89,9 @@ const main = () => httpClient.get('/remonts/count')
     const report = require('./report.final.json')
 
     Object.keys(report['step2'].allUploads).forEach((key) => {
-      if (report['step3.1'].assignedUploads[key] === false) {
-        report['step3.1'].assignedUploads[key] = true
-      }
+      if (report['step3.1'].assignedUploads[key] === false) report['step3.1'].assignedUploads[key] = true
     })
 
-    const reportFileName = 'report.final.json'
-    const reportFile = path.join(__dirname, reportFileName)
-    
     fs.writeFileSync(
       reportFile,
       JSON.stringify(report),
@@ -112,35 +110,33 @@ const main = () => httpClient.get('/remonts/count')
 const report = require('./report.final.json')
 const getSize = require('get-folder-size')
 
-getSize(path.join(__dirname, '../', 'public/uploads'), (err, size) => {
+getSize(path.join(__dirname, '../', 'public/uploads'), async (err, size) => {
   if (err) { throw err; }
 
   // console.log((size / 1024 / 1024).toFixed(2) + ' MB'); // bytes -> MB
   report['step3.2'].analysis.totalSize = size / 1024 // / 1024 // [kB]
 
   // TODO: Does not work! WTF?
-  // fs.readFileSync(path.join(__dirname, 'report.total.txt'), 'utf8', function readFileCallback (err, data) {
-  //   if (err) {
-  //     console.log('🚫 TXT COULD NOT READ!')
-  //     console.log(err)
-  //   } else {
-  //     const num = Number(data)
-  //     report['step3.2'].analysis.total = num
+  fs.readFile(path.join(__dirname, 'report.total.txt'), 'utf8', function readFileCallback (err, data) {
+    if (err) {
+      console.log('🚫 TXT COULD NOT READ!')
+      console.log(err)
+    } else {
+      const num = Number(data)
+      report['step3.2'].analysis.total = num
+    }
+  })
+  await delay(2000)
 
-  //     const reportFileName = 'report.final.json'
-  //     const reportFile = path.join(__dirname, reportFileName)
-      
-  //     fs.writeFileSync(
-  //       reportFile,
-  //       JSON.stringify(report),
-  //       'utf8',
-  //       () => {
-  //         console.log(`👌 JSON SAVED: ${reportFile}`)
-  //         // process.exit(0)
-  //       }
-  //     )
-  //   }
-  // })
+  fs.writeFileSync(
+    reportFile,
+    JSON.stringify(report),
+    'utf8',
+    () => {
+      console.log(`👌 JSON SAVED: ${reportFile}`)
+      // process.exit(0)
+    }
+  )
 
   main()
 })
