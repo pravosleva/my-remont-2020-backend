@@ -106,12 +106,10 @@ const main = async () => {
       const filename = getFilename([obj[key].url])
 
       if (report['step2'].allUploads[filename] === false) {
-        // report['step3.1'].assignedUploads[filename] = true
-        report['step2'].allUploads[filename] = true
+        report['step3.1'].assignedUploads[filename] = true
+      } else {
+        report['step3.1'].assignedUploads[filename] = report['step2'].allUploads[filename] || false
       }
-      // else {
-      //   report['step3.1'].assignedUploads[filename] = report['step2'].allUploads[filename] || false
-      // }
 
       report['step3.2'].analysis.assigned.total += 1
       report['step3.2'].analysis.assigned.totalSize += obj[key].size // kB

@@ -85,28 +85,28 @@ const main = () => httpClient.get('/remonts/count')
 
     return totalPages
   })
-  // .then(() => {
-  //   const report = require('./report.final.json')
+  .then(() => {
+    const report = require('./report.final.json')
 
-  //   Object.keys(report['step2'].allUploads).forEach((key) => {
-  //     // if (report['step3.1'].assignedUploads[key] === false) report['step3.1'].assignedUploads[key] = true
-  //     if (report['step2'].allUploads[key] === false) {
-  //       report['step3.1'].assignedUploads[key] = true
-  //     } else {
-  //       report['step3.1'].assignedUploads[key] = report['step2'].allUploads[key] || false
-  //     }
-  //   })
+    Object.keys(report['step2'].allUploads).forEach((key) => {
+      // if (report['step3.1'].assignedUploads[key] === false) report['step3.1'].assignedUploads[key] = true
+      if (report['step2'].allUploads[key] === false) {
+        report['step3.1'].assignedUploads[key] = true
+      } else {
+        report['step3.1'].assignedUploads[key] = report['step2'].allUploads[key] || false
+      }
+    })
 
-  //   fs.writeFileSync(
-  //     reportFile,
-  //     JSON.stringify(report),
-  //     'utf8',
-  //     () => {
-  //       console.log(`👌 JSON SAVED: ${reportFile}`)
-  //       // process.exit(0)
-  //     }
-  //   )
-  // })
+    fs.writeFileSync(
+      reportFile,
+      JSON.stringify(report),
+      'utf8',
+      () => {
+        console.log(`👌 JSON SAVED: ${reportFile}`)
+        // process.exit(0)
+      }
+    )
+  })
   .catch((err) => {
     console.log(err)
     throw new Error(err)
