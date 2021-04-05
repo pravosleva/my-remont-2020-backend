@@ -100,12 +100,15 @@ const main = async () => {
   ]
   */
   // const hashes = allImgs.map(({ thumbnail: { hash } }) => hash.split('_').reverse()[0])
+  const getFilename = (url) => url.split('/').reverse()[0]
   allImgs.forEach((obj) => {
     for (const key in obj) {
-      if (report['step2'].allUploads[[obj[key].name]] === false) {
-        report['step3.1'].assignedUploads[[obj[key].name]] = true
+      const filename = getFilename([obj[key].url])
+
+      if (report['step2'].allUploads[filename] === false) {
+        report['step3.1'].assignedUploads[filename] = true
       } else {
-        report['step3.1'].assignedUploads[[obj[key].name]] = false
+        report['step3.1'].assignedUploads[filename] = false
       }
 
       report['step3.2'].analysis.assigned.total += 1
