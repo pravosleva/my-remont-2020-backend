@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "uploads:make-report": "bash ./service.cleanup/step.1-make-uploads-txt-report.sh && node ./service.cleanup/step.2-make-uploads-json-report.js && LIMIT=1 node ./service.cleanup/step.3.1.2-run-some-pages.js",
+    "uploads:make-report": "bash ./service.cleanup/step.1-make-uploads-txt-report.sh && node ./service.cleanup/step.2-make-uploads-json-report.js && LIMIT=1 node ./service.cleanup/step.3.1.2-run-some-pages.js && bash ./service.cleanup/step.3.2-copy-report-to-public.sh",
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",

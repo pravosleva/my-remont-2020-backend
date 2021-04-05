@@ -124,3 +124,4 @@ public/demo/*
 service.*/**
 !service.*/.gitkeep
 !service.cleanup/step.*
+public/report.*
