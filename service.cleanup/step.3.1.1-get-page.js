@@ -108,7 +108,7 @@ const main = async () => {
       if (report['step2'].allUploads[filename] === false) {
         report['step3.1'].assignedUploads[filename] = true
       } else {
-        report['step3.1'].assignedUploads[filename] = false
+        report['step3.1'].assignedUploads[filename] = report['step2'].allUploads[filename] || false
       }
 
       report['step3.2'].analysis.assigned.total += 1
