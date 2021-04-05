@@ -110,6 +110,7 @@ const main = async () => {
       } else {
         report['step3.1'].assignedUploads[filename] = report['step2'].allUploads[filename] || false
       }
+      report['step3.1'].ts = new Date().getTime()
 
       report['step3.2'].analysis.assigned.total += 1
       report['step3.2'].analysis.assigned.totalSize += obj[key].size // kB
