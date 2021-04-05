@@ -42,7 +42,11 @@ rl
   .on('line', function(line, _lineCount, _byteCount) {
     // do something with the line of text
     // lines.push({ filename: line });
-    if (line === '.gitkeep') json.step2.allUploads[line] = true
+    if (line === '.gitkeep') {
+      json.step2.allUploads[line] = true
+    } else {
+      json.step2.allUploads[line] = false
+    }
   })
   .on('close', function() {
     // function getValues(arr) {
