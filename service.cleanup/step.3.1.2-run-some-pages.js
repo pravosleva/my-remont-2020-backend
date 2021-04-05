@@ -89,7 +89,12 @@ const main = () => httpClient.get('/remonts/count')
     const report = require('./report.final.json')
 
     Object.keys(report['step2'].allUploads).forEach((key) => {
-      if (report['step3.1'].assignedUploads[key] === false) report['step3.1'].assignedUploads[key] = true
+      // if (report['step3.1'].assignedUploads[key] === false) report['step3.1'].assignedUploads[key] = true
+      if (report['step2'].allUploads[key] === false) {
+        report['step3.1'].assignedUploads[key] = true
+      } else {
+        report['step3.1'].assignedUploads[key] = report['step2'].allUploads[key] || false
+      }
     })
 
     fs.writeFileSync(
