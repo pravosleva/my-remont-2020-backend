@@ -10,7 +10,7 @@ const json = {
     allUploads: {},
     ts: new Date().getTime(),
   },
-  'step3.1': {  
+  'step3.1': {
     description: 'Файлы, найденные в проектах',
     assignedUploads: {},
     ts: null,
@@ -42,7 +42,7 @@ rl
   .on('line', function(line, _lineCount, _byteCount) {
     // do something with the line of text
     // lines.push({ filename: line });
-    json.step2.allUploads[line] = false
+    if (line === '.gitkeep') json.step2.allUploads[line] = true
   })
   .on('close', function() {
     // function getValues(arr) {
@@ -60,7 +60,7 @@ rl
     // const isOk = getValues(lines).length === 1;
 
     // process.stdout.write((isOk ? 1 : 0).toString());
-    
+
     const reportFile = path.join(__dirname, reportFileName)
 
     fs.writeFile(

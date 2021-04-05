@@ -126,7 +126,7 @@ getSize(path.join(__dirname, '../', 'public/uploads'), async (err, size) => {
       report['step3.2'].analysis.total = num
     }
   })
-  await delay(2000)
+  await delay(5000)
 
   fs.writeFileSync(
     reportFile,

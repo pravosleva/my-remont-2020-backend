@@ -8,9 +8,11 @@ const reportFileName = 'report.final.json'
 const report = require('./report.final.json')
 // console.log(report)
 
+report['step3.1'].assignedUploads['.gitkeep'] = true // NOTE: Исключение
+
 const httpClient = axios.create({
   baseURL: 'http://selection4test.ru:1338', // selection4test.ru
-  proxy: false  
+  proxy: false
 })
 
 const main = async () => {
@@ -100,7 +102,7 @@ const main = async () => {
   // const hashes = allImgs.map(({ thumbnail: { hash } }) => hash.split('_').reverse()[0])
   allImgs.forEach((obj) => {
     for (const key in obj) {
-      report['step3.1'].assignedUploads[[obj[key].name]] = false // Not confirmed yet
+      report['step3.1'].assignedUploads[[obj[key].name]] = false // NOTE: Еще не сравнивали с фактическим перечнем
 
       report['step3.2'].analysis.assigned.total += 1
       report['step3.2'].analysis.assigned.totalSize += obj[key].size // kB
@@ -110,7 +112,7 @@ const main = async () => {
   // process.stdout.write(Object.keys(report['step3.1'].assignedUploads).length)
   // console.log(report['step3.1'].assignedUploads)
   fs.writeFileSync(
-    path.join(__dirname, `_tmp.report.${PAGE}.txt`),
+    path.join(__dirname, `_tmp.db-report.${PAGE}.txt`),
     Object.keys(report['step3.1'].assignedUploads).length,
     'utf8',
     () => {
