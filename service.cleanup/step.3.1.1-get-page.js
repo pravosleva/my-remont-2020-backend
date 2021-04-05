@@ -101,6 +101,9 @@ const main = async () => {
   */
   // const hashes = allImgs.map(({ thumbnail: { hash } }) => hash.split('_').reverse()[0])
   const getFilename = (url) => url.split('/').reverse()[0]
+  let totalSize = 0
+  let total = 0
+
   allImgs.forEach((obj) => {
     for (const key in obj) {
       const filename = getFilename([obj[key].url])
@@ -110,12 +113,13 @@ const main = async () => {
       } else {
         report['step3.1'].assignedUploads[filename] = report['step2'].allUploads[filename] || false
       }
-
-      report['step3.2'].analysis.assigned.total = report['step3.2'].analysis.assigned.total + 1
-      report['step3.2'].analysis.assigned.totalSize = report['step3.2'].analysis.assigned.totalSize + obj[key].size // kB
+      total += 1
+      totalSize += obj[key].size
     }
   })
   report['step3.2'].ts = new Date().getTime()
+  report['step3.2'].analysis.assigned.total = total
+  report['step3.2'].analysis.assigned.totalSize = totalSize // kB
 
   const reportFile = path.join(__dirname, reportFileName)
   fs.writeFileSync(
