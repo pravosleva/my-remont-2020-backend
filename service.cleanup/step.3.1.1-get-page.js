@@ -117,9 +117,11 @@ const main = async () => {
       totalSize += obj[key].size
     }
   })
-  report['step3.2'].ts = new Date().getTime()
-  report['step3.2'].analysis.assigned.total = total
-  report['step3.2'].analysis.assigned.totalSize = totalSize // kB
+
+  // TODO: Does not works!
+  // report['step3.2'].ts = new Date().getTime()
+  // report['step3.2'].analysis.assigned.total = total
+  // report['step3.2'].analysis.assigned.totalSize = totalSize // kB
 
   const reportFile = path.join(__dirname, reportFileName)
   fs.writeFileSync(
